@@ -10,13 +10,13 @@
 
 // Exports
 
-module.exports = function itExports(findParent) {
+module.exports = function itExports(utils) {
 	describe('methods', () => {
 		it.each([
 			'findParent',
 			'findParentOrSelf'
 		])('%s', (key) => {
-			expect(findParent[key]).toBeFunction();
+			expect(utils[key]).toBeFunction();
 		});
 	});
 };

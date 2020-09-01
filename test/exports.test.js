@@ -7,7 +7,7 @@
 'use strict';
 
 // Modules
-const findParent = require('@overlook/util-find-parent');
+const utils = require('@overlook/util-find-parent');
 
 // Imports
 const itExports = require('./exports.js');
@@ -15,11 +15,11 @@ const itExports = require('./exports.js');
 // Tests
 
 describe('CJS export', () => {
-	it('is defined', () => {
-		expect(findParent).not.toBeUndefined();
+	it('is object', () => {
+		expect(utils).toBeObject();
 	});
 
 	describe('has properties', () => {
-		itExports(findParent);
+		itExports(utils);
 	});
 });

@@ -11,7 +11,45 @@ Part of the [Overlook framework](https://overlookjs.github.io/).
 
 ## Usage
 
-This module is under development and not ready for use yet.
+Utility functions for finding a parent route with certain characteristics:
+
+* `findParent( route, fn )`
+* `findParentOrSelf( route, fn )`
+
+Traverses down the parentage chain, calling `fn()` with each route encountered until `fn()` returns a truthy value. That route is returned.
+
+If none is found, returns `null`.
+
+`findParent()` does not include original route in search, `findParentOrSelf()` does.
+
+```js
+const Route = require('@overlook/route'),
+const {
+  findParent,
+  findParentOrSelf
+} = require('@overlook/util-find-parent');
+
+const root = new Route();
+const child1 = new Route( { name: 'child1' } );
+const child2 = new Route( { name: 'child2' } );
+root.attachChild( child1 );
+child1.attachChild( child2 );
+
+findParentOrSelf( child2, () => true ) // => child2
+findParentOrSelf( child2, route => route !== child2 ) // => child1
+findParentOrSelf( child2, route => !route.name ) // => root
+findParentOrSelf( child2, () => false ) // => null
+
+findParent( child2, () => true ) // => child1
+```
+
+### ESM
+
+ESM version provides named exports.
+
+```js
+import { findParent, findParentOrSelf } from '@overlook/util-find-parent';
+```
 
 ## Versioning
 

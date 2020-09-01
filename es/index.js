@@ -6,9 +6,9 @@
 
 // Exports
 
-import findParentMethods from '../lib/index.js';
+import utils from '../lib/index.js';
 
 export const {
 	findParent,
 	findParentOrSelf
-} = findParentMethods;
+} = utils;
