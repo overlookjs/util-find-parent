@@ -1,6 +1,6 @@
 {
   "name": "@overlook/util-find-parent",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Overlook framework utility to find parent route",
   "main": "index.js",
   "module": "es/index.js",
